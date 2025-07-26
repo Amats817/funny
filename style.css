@@ -1,8 +1,9 @@
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50vh;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50vh;
+  transform: translateY(-50%);
 }
 
 .btn-class-name {
@@ -15,10 +16,13 @@ body{
   cursor: pointer;
   user-select: none;
   touch-action: manipulation;
-  outline: 10px solid rgb(var(--primary), .5);
+  outline: 10px solid rgb(var(--primary), 0.5);
   border-radius: 100%;
   position: relative;
-  transition: .3s;
+  transition: 0.3s;
+  z-index: 9999;
+  pointer-events: auto;
+  background: transparent;
 }
 
 .btn-class-name .back {
@@ -32,8 +36,8 @@ body{
 }
 
 .btn-class-name .front {
-  background: linear-gradient(0deg, rgba(var(--primary), .6) 20%, rgba(var(--primary)) 50%);
-  box-shadow: 0 .5em 1em -0.2em rgba(var(--secondary), .5);
+  background: linear-gradient(0deg, rgba(var(--primary), 0.6) 20%, rgba(var(--primary)) 50%);
+  box-shadow: 0 0.5em 1em -0.2em rgba(var(--secondary), 0.5);
   border-radius: 100%;
   position: absolute;
   border: 1px solid rgb(var(--secondary));
@@ -48,11 +52,12 @@ body{
   font-weight: 600;
   font-family: inherit;
   transform: translateY(-15%);
-  transition: .15s;
+  transition: 0.15s;
   color: rgb(var(--secondary));
+  user-select: none;
 }
 
 .btn-class-name:active .front {
   transform: translateY(0%);
-  box-shadow: 0 0;
+  box-shadow: none;
 }

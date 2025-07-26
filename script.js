@@ -12,14 +12,22 @@ const memes = [
   '11.png'
 ];
 
+const button = document.getElementById('meme-button');
 let intervalId = null;
 
-document.getElementById('meme-button').addEventListener('click', () => {
-  if (intervalId !== null) return;
+button.addEventListener('click', () => {
+  if (intervalId === null) {
 
-  intervalId = setInterval(() => {
-    const randomIndex = Math.floor(Math.random() * memes.length);
-    const randomImage = `memes/${memes[randomIndex]}`;
-    window.open(randomImage, '_blank');
-  }, 2000);
+    intervalId = setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * memes.length);
+      const randomImage = `memes/${memes[randomIndex]}`;
+      window.open(randomImage, '_blank');
+    }, 1500);
+    button.querySelector('.front').textContent = 'STOP';
+  } else {
+   
+    clearInterval(intervalId);
+    intervalId = null;
+    button.querySelector('.front').textContent = 'GO';
+  }
 });
